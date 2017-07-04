@@ -1,0 +1,80 @@
+doctype html
+html(lang="en")
+ head
+  meta(charset='utf-8')
+  title Sustaniable House
+  link(href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet')
+  link(href='style/main.css' rel='stylesheet')
+  meta(name='viewport' content='width=device-width,initial-scale=1')
+ body
+  -
+   var sustainis = [
+      {
+        name: 'The Sun',
+        slug: 'solar',
+        textLeft: 'If we could capture solar energy with 100% efficiency, and area the size of Rhode Island could power the world.',
+        textRight: 'Right now we can utilize it better to power our appliances, light up our rooms, and capture it\'s heat to release later.'
+      },
+      {
+        name: 'The Rain',
+        slug: 'water',
+        textLeft: 'Growing cities in desert environemnts are putting increasing strain on our lakes and rivers. This is one resource we cannot do without.',
+        textRight: 'Captured rainwater can be filtered and used to drink, wash dishes, and shower. Caputred graywater from showers and sinks can be used to flush toilets, water plants, and cool rooms to multiply the gallon per gallon value of our water.'
+      },
+      {
+        name: 'The Place',
+        slug: 'place',
+        textLeft: 'The right choice depends on the right location. Using local building materials supports local economies and reduces the resources required to get them to the build site. Local plants are already adapted to the environment and require less resources to maintain.',
+        textRight: 'Hot locales benefit from using lighter colors to reflect more heat. Cooler locations can use geothermal heat to stay warm. South facing windows let natural light in.'
+      },
+      {
+        name: 'The Earth',
+        slug: 'materials',
+        textLeft: 'Light Colors to reflect sun, sustainable materials that are durable.',
+        textRight: 'Collect Rainwater, Reuse Graywater'
+      },
+      {
+        name: 'The Wind',
+        slug: 'wind',
+        textLeft: 'Use breeze to cool down',
+        textRight: 'Collect Rainwater, Reuse Graywater'
+      },
+    ];
+    var itemList = [
+      {
+        name: 'Use',
+        slug: 'use',
+        textLeft: 'Take what\'s being given to us, Solar Panels to generate electricity, rainwater systems to feed showers, geothermal exchanges to heat, natual sunlight to see.',
+        textRight: 'Stored rainwater can be used for drinking, showering, and watering plants. Local plants are already adapted to the environment and need less resources.'
+      },
+      {
+        name: 'Re-Use',
+        slug: 'reuse',
+        textLeft: 'Grey-water from sinks and showers can be used to flush toilets and water plants',
+        textRight: 'Composting system can feed gardens, '
+      },
+      {
+        name: 'Preserve',
+        slug: 'preserve',
+        textLeft: 'Proper insulation can reduce heating needs, double or triple pane windows keep temperatures stable inside, thermal masses can store heat in the day and release it at night.',
+        textRight: 'Energy efficient lighting and applainces reduce demand for electricity. Low flow toilets reduce water consumption'
+      }
+    ];
+  .wrapper
+   .upper
+    nav.nav
+     h1 Sustainable is:
+    .primary-render
+      ul
+      each item in itemList
+        li.item-link
+         a(href='#'+item.slug)= item.name
+   .items    
+    each item in itemList
+      section.item(class='item-'+item.slug)
+        h2.item-title= item.name
+        .item-image
+        p.item-text.item-text-left= item.textLeft
+        p.item-text.item-text-right= item.textRight
+        a.item-title-anchor(name=item.slug)
+        
