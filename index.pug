@@ -66,11 +66,11 @@ html(lang="en")
      h1 Sustainable is:
     .primary-render
       ul
-      each item in itemList
+      each item in sustainis
         li.item-link
          a(href='#'+item.slug)= item.name
    .items    
-    each item in itemList
+    each item in sustainis
       section.item(class='item-'+item.slug)
         h2.item-title= item.name
         .item-image
