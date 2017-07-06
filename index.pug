@@ -76,7 +76,16 @@ html(lang="en")
         .item-text
          p.item-text-a= item.textLeft
          p.item-text-b= item.textRight
+        .item-info-images
+          .item-info-images-a
+          .item-info-images-b
+          .item-info-images-c
        a.item-title-anchor(name=item.slug)
+   .top-nav
+     ul.top-nav-list
+        each item in bigfive
+          li.top-nav-item
+           a.top-nav-item-link(id=item.slug+'-link' href='#'+item.slug)= item.name
   script.
    let slugs = ['solar', 'insulation', 'materials', 'design', 'graywater']
    for(let i=0; i < slugs.length; i++) {
