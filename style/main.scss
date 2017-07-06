@@ -73,17 +73,19 @@ h1, h2 {
 }
 
 .primary-render {
-    height: 10em;
-    width: 10em;
-    background: #666;
+    height: 20em;
+    width: 40em;
     margin-top: 10rem;
     margin: 3em auto;
     display: block;
+    background: url(../images/overall.png) no-repeat;
+    background-size: contain; 
+    background-position: center center;
 }
 
 .items {
     //margin-top: 15em;
-    z-index: 1;
+    //z-index: 1;
     position: relative;
 }
 
@@ -150,25 +152,84 @@ h1, h2 {
         align-self: flex-end;
         order: 3;
     }
+    &-images {
+        width: 100vw;
+        position: absolute;
+        z-index: 20;
+        margin-top: 2em;
+        &-primary {
+            height: 20em;
+            width: 40em;
+            margin-top: 10rem;
+            margin: 3em auto;
+            display: block;
+
+            
+            &:before {
+                height: 20em;
+                content: "";
+                width: 40em;
+                margin-top: 10rem;
+                margin: 3em auto;
+                display: block;
+                background: url(../images/overall.png) no-repeat;
+                background-size: contain; 
+                background-position: center center;
+                opacity: 0.3;
+                position: absolute;
+            }
+            &:after {
+                height: 20em;
+                content: "";
+                width: 40em;
+                margin-top: 10rem;
+                margin: 3em auto;
+                display: block;
+                background: url(../images/overall.png) no-repeat;
+                background-size: contain; 
+                background-position: center center;
+                position: absolute;
+            }
+            &-power:after {
+               background-image:  url(../images/overallsolar.png);
+            }
+            &-insulation:after {
+               background-image:  url(../images/overallinsulation.png);
+            }
+            &-materials:after{
+               background-image:  url(../images/overallmaterials.png);
+            }
+            &-water:after{
+               background-image:  url(../images/overallgraywater.png);
+            }
+            &-design:after{
+               background-image:  url(../images/overalldesign.png);
+            }
+        }
+    }
 
 }
 
 .item:nth-child(1) {
-    background-color: #3BB873;
+    background-color: #999;
 }
 
 .item:nth-child(2) {
-    background-color: #EEBB55
+    background-color: #3BB873;
 }
 
 .item:nth-child(3) {
-    background-color: #82A6CB;
+    background-color: #EEBB55
 }
 
 .item:nth-child(4) {
-    background-color: #94ED88;
+    background-color: #82A6CB;
 }
 
 .item:nth-child(5) {
+    background-color: #94ED88;
+}
+
+.item:nth-child(6) {
     background-color: #88D498;
 }
