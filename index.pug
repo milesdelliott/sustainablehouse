@@ -9,15 +9,9 @@ html(lang="en")
  body
   -
     var bigfive = [
-       {
-        name: 'Sustainable',
-        slug: 'sustainable',
-        textLeft: '',
-        textRight: ''
-      },
       {
-        name: 'Power Collection',
-        slug: 'power',
+        name: 'Power',
+        slug: 'solar',
         textLeft: 'If we could capture solar energy with 100% efficiency, and area the size of Rhode Island could power the world.',
         textRight: 'Right now we can utilize it better to power our appliances, light up our rooms, and capture it\'s heat to release later.'
       },
@@ -29,7 +23,7 @@ html(lang="en")
       },
       {
         name: 'Gray water',
-        slug: 'water',
+        slug: 'graywater',
         textLeft: 'The right choice depends on the right location. Using local building materials supports local economies and reduces the resources required to get them to the build site. Local plants are already adapted to the environment and require less resources to maintain.',
         textRight: 'Hot locales benefit from using lighter colors to reflect more heat. Cooler locations can use geothermal heat to stay warm. South facing windows let natural light in.'
       },
@@ -47,21 +41,54 @@ html(lang="en")
       },
     ];
   .wrapper
-   .upper
+   //.upper
     nav.nav
      h1 Sustainable is:
-    //.primary-render
-      //ul
-       each item in bigfive
-        li.item-link
-         a(href='#'+item.slug)= item.name
-   .items    
+     
+   .items
+    .item.item-index
+     .item-main.item-main-index
+      h2.item-title Sustainable
+      .item-index-images
+       img#overall-img.img-house.img-house-overall(src="images/overall.png")
+       img#solar-img.img-house.img-house-item(src="images/overallsolar.png")
+       img#design-img.img-house.img-house-item(src="images/overalldesign.png")
+       img#materials-img.img-house.img-house-item(src="images/overallmaterials.png")
+       img#insulation-img.img-house.img-house-item(src="images/overallinsulation.png")
+       img#graywater-img.img-house.img-house-item(src="images/overallgraywater.png")
+       
+     .item-info.item-index-section
+      ul.item-nav
+        each item in bigfive
+          li.item-nav-item
+           a.item-nav-item-link(id=item.slug+'-link' href='#'+item.slug)= item.name
+     a.item-title-anchor(name="index")
     each item in bigfive
-      section.item(class='item-'+item.slug)
-        h2.item-title= item.name
-        .item-images
-          .item-images-primary(class="item-images-primary-"+item.slug)
-        p.item-text.item-text-left= item.textLeft
-        p.item-text.item-text-right= item.textRight
-        a.item-title-anchor(name=item.slug)
+      .item(class='item-'+item.slug)
+       .item-main.item-section
+        .item-main-inner
+          h2.item-title= item.name
+          .item-house-images
+           .item-house-images-inner
+            img.img-house.img-house-overall(src="images/overall.png")
+            img.img-house.img-house-item(src="images/overall"+item.slug+".png")
+       .item-info.item-section
+        .item-text
+         p.item-text-a= item.textLeft
+         p.item-text-b= item.textRight
+       a.item-title-anchor(name=item.slug)
+  script.
+   let slugs = ['solar', 'insulation', 'materials', 'design', 'graywater']
+   for(let i=0; i < slugs.length; i++) {
+     let el = document.getElementById(slugs[i]+'-link')
+     el.addEventListener('mouseenter', function() {
+       document.getElementById(slugs[i]+'-img').classList.add('img--show');
+       document.getElementById('overall-img').classList.add('img--dim');
+     }, false);
+     el.addEventListener('mouseleave', function() {
+       document.getElementById(slugs[i]+'-img').classList.remove('img--show');
+       document.getElementById('overall-img').classList.remove('img--dim');
+     }, false);
+     
+   }
         

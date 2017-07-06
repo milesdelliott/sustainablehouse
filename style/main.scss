@@ -64,23 +64,12 @@ h1, h2 {
 }
 
 .upper {
-    //background: rgba(255,255,255,0.8);
-    position: fixed;
+    background: #999;
+    //position: fixed;
     width: 100%;
     top: 0;
-    height: 15em;
+    height: 3em;
     z-index: 10;
-}
-
-.primary-render {
-    height: 20em;
-    width: 40em;
-    margin-top: 10rem;
-    margin: 3em auto;
-    display: block;
-    background: url(../images/overall.png) no-repeat;
-    background-size: contain; 
-    background-position: center center;
 }
 
 .items {
@@ -91,145 +80,166 @@ h1, h2 {
 
 .item {
     margin: 0 auto;
-    padding: 1em 4em;
     width: 100%;
     height: 93vh;
     position: relative;
     display: flex;
     flex-flow: row wrap;
     box-sizing: border-box;
-    justify-content: center;
     &:last-child {
         height: 100vh;
     }
+    &-section {
+        flex: 1 1 auto;
+        display: flex;
+        padding: 2em;
+        flex-flow: column;
+    }
+    &-index-section {
+        flex: 1 1 auto;
+        padding: 0;
+    }
+    &-main {
+        flex: 2 2 auto;
+        order: 2;
+        flex-flow: row;
+        align-items: center;
+        &-inner {
+            margin: 0 auto;
+            flex: 1 1 100%;
+        }
+    }
+    &-info {
+        flex: 1 1 20em;
+        order: 3;
+        .item:nth-child(even) & {
+            order: 1;
+        }
+    }
+    &-house-images {
+        display: block;
+        position: relative;
+        flex: 1 1 auto;
+        &-inner {
+            height: 15em;
+        }
+        .img-house-overall {
+            opacity: 0.4;
+        }
+    }
+    &-index-images {
+        display: block;
+        position: relative;
+        flex: 1 1 auto;
+        .img-house-overall {
+            opacity: 1;
+            &.img--dim {
+                opacity: 0.2;
+            }
+        }
+        .img-house-item {
+            opacity: 0;
+            &.img--show {
+                opacity: 1;
+            }
+        }
+    }
     &-title {
-        font-size: 10em;
+        font-size: 4em;
         order: 1;
         flex-basis: 100%;
         align-self: center;
-        position: absolute;
         &-anchor {
             position: absolute;
             margin-top: -1em;
         }
     }
-    &-link {
-        list-style-type: none;
-        a{
-            &:visited, &:link, {
-                color: white;
-            }
-            color: white;
-            background-color: #333;
-            height: 1em;
+    &-nav {
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+        &-item {
+            list-style-type: none;
+            position: relative;
             display: block;
-            margin: 0.25em;
+            flex: 1 1 auto;
+            &-link{
+                &:visited, &:link, {
+                    color: white;
+                }
+                display: block;
+                color: white;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                display: flex;
+                align-items: center;
+                font-size: 2em;
+                padding-left: 1em;
+                text-decoration: none;
+                font-family: 'Montserrat', sans-serif;
+                box-sizing: border-box;
+                &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    background-color: transparent;
+                    opacity: 0.4;
+                    top: 0;
+                    left: 0;
+                    background-blend-mode: multiply;
+                    transition-duration: .2s;
+                    transition-timing-function: ease;
+                    transition-property: all;
+                }
+            }
+        }
+        &:hover &-item-link:not(:hover):after {
+            background-color: black;
         }
     }
+    
     &-text {
         max-width: 30em;
         line-height: 1.2;
-        flex: 0 4 auto;
-        align-self: flex-end;
-        min-height: 6em;
-        box-sizing: border-box;
-        max-width: 20em;
-        &-left {
-            order: 2;
-        }
-        &-right {
-            order: 4;
-        }
-    }
-    &-image {
-        flex: 0 1 7em;
-        height: 7em;
-        width: 7em;
-        margin: 0 3em;
-        background: #333;
-        display: block;
-        position: relative;
-        align-self: flex-end;
-        order: 3;
-    }
-    &-images {
-        width: 100vw;
-        position: absolute;
-        z-index: 20;
-        margin-top: 2em;
-        &-primary {
-            height: 20em;
-            width: 40em;
-            margin-top: 10rem;
-            margin: 3em auto;
-            display: block;
-
-            
-            &:before {
-                height: 20em;
-                content: "";
-                width: 40em;
-                margin-top: 10rem;
-                margin: 3em auto;
-                display: block;
-                background: url(../images/overall.png) no-repeat;
-                background-size: contain; 
-                background-position: center center;
-                opacity: 0.3;
-                position: absolute;
-            }
-            &:after {
-                height: 20em;
-                content: "";
-                width: 40em;
-                margin-top: 10rem;
-                margin: 3em auto;
-                display: block;
-                background: url(../images/overall.png) no-repeat;
-                background-size: contain; 
-                background-position: center center;
-                position: absolute;
-            }
-            &-power:after {
-               background-image:  url(../images/overallsolar.png);
-            }
-            &-insulation:after {
-               background-image:  url(../images/overallinsulation.png);
-            }
-            &-materials:after{
-               background-image:  url(../images/overallmaterials.png);
-            }
-            &-water:after{
-               background-image:  url(../images/overallgraywater.png);
-            }
-            &-design:after{
-               background-image:  url(../images/overalldesign.png);
-            }
+        font-size: 1.2em;
+        padding: 1em;
+        &-a, &-b {
+            margin-bottom: 1em;
         }
     }
 
 }
 
-.item:nth-child(1) {
+.img-house {
+    max-width: 40rem;
+    width: 100%;
+    height: auto;
+    position: absolute;
+}
+
+.item:nth-child(1), .item-nav-item-link {
     background-color: #999;
 }
 
-.item:nth-child(2) {
+.item:nth-child(2), .item-nav-item:nth-child(1) .item-nav-item-link  {
     background-color: #3BB873;
 }
 
-.item:nth-child(3) {
+.item:nth-child(3), .item-nav-item:nth-child(2) .item-nav-item-link {
     background-color: #EEBB55
 }
 
-.item:nth-child(4) {
+.item:nth-child(4), .item-nav-item:nth-child(3) .item-nav-item-link {
     background-color: #82A6CB;
 }
 
-.item:nth-child(5) {
+.item:nth-child(5), .item-nav-item:nth-child(4) .item-nav-item-link {
     background-color: #94ED88;
 }
 
-.item:nth-child(6) {
+.item:nth-child(6), .item-nav-item:nth-child(5) .item-nav-item-link {
     background-color: #88D498;
 }
