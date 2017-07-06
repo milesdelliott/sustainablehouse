@@ -5,12 +5,14 @@
   "main": "index.html",
   "scripts": {
     "style": "node-sass style/main.scss style/main.css",
+    "postcss": "postcss style/main.css -u autoprefixer --no-map -o style/main.css",
     "test": "test"
   },
   "author": "Miles and Derek Elliott",
   "license": "ISC",
   "devDependencies": {
     "node-sass": "^4.5.3",
+    "postcss": "^6.0.6",
     "pug": "^2.0.0-rc.2",
     "pug-cli": "^1.0.0-alpha6",
     "sass": "^1.0.0-beta.1"

@@ -1,45 +1,6 @@
 $md: 51em;
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline; }
-
-/* HTML5 display-role reset for older browsers */
-
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-  display: block; }
-
-body {
-  line-height: 1; }
-
-ol, ul {
-  list-style: none; }
-
-blockquote, q {
-  quotes: none; }
-
-blockquote {
-  &:before, &:after {
-    content: '';
-    content: none; } }
-
-q {
-  &:before, &:after {
-    content: '';
-    content: none; } }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
+@import 'reset';
 
   /* site stlyes */
 
@@ -86,6 +47,7 @@ h1, h2 {
     display: flex;
     flex-flow: row wrap;
     box-sizing: border-box;
+    overflow: hidden;
     &:last-child {
         height: 100vh;
     }
@@ -112,6 +74,7 @@ h1, h2 {
             padding: 2em;
         }
         &-inner {
+            width: 100%;
             margin: 0 auto;
             flex: 1 1 100%;
         }
@@ -120,6 +83,7 @@ h1, h2 {
         flex: 1 1 20em;
         order: 3;
         justify-content: center;
+        min-width: 20em;
         .item:nth-child(even) & {
             order: 1;
             &-images {
@@ -140,13 +104,17 @@ h1, h2 {
                 border-radius: 2em;
             }
         }
+        @media screen and (max-width: $md) {
+            flex-basis: auto;
+        }
     }
     &-house-images {
         display: block;
         position: relative;
         flex: 1 1 auto;
         &-inner {
-            height: 30vw;
+            height: 50vw;
+            max-height: 55vh;
             position: relative;
             margin: 0 auto;
             box-sizing: border-box;
@@ -189,6 +157,10 @@ h1, h2 {
         display: flex;
         flex-flow: column;
         height: 100%;
+        position:absolute;
+        top:0;
+        width:100%;
+        
         &-item {
             list-style-type: none;
             position: relative;
@@ -238,6 +210,9 @@ h1, h2 {
         &:hover &-item-link:not(:hover):after {
             background-color: black;
         }
+        @media screen and (max-width: $md) {
+            position: relative;
+        }
     }
     
     &-text {
@@ -273,14 +248,13 @@ h1, h2 {
         &-list {
         width: 100%;
         display: flex;
-        flex-flow: row;
-        height: 2em;
+        flex-flow: row wrap;
+        min-height: 2em;
           
         }
         &-item {
             list-style-type: none;
             position: relative;
-            display: inline;
             flex: 1 1 auto;
             &-link{
                 display: inline-block;
