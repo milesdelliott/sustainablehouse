@@ -326,21 +326,26 @@ h1, h2 {
 }
 
 .item:nth-child(2), .item-nav-item:nth-child(1) .item-nav-item-link, .top-nav-item:nth-child(1) .top-nav-item-link  {
-    background-color: #3BB873;
+    $color: #3BB873;
+    background-image: linear-gradient(115deg, $color, darken($color, 10%));
 }
 
 .item:nth-child(3), .item-nav-item:nth-child(2) .item-nav-item-link, .top-nav-item:nth-child(2) .top-nav-item-link {
-    background-color: #EEBB55
+    $color: #EEBB55;
+    background-image: linear-gradient(115deg, $color, darken($color, 10%));
 }
 
 .item:nth-child(4), .item-nav-item:nth-child(3) .item-nav-item-link, .top-nav-item:nth-child(3) .top-nav-item-link {
-    background-color: #82A6CB;
+    $color: #82A6CB;
+    background-image: linear-gradient(115deg, $color, darken($color, 10%));
 }
 
 .item:nth-child(5), .item-nav-item:nth-child(4) .item-nav-item-link, .top-nav-item:nth-child(4) .top-nav-item-link {
-    background-color: #94ED88;
+    $color: #94ED88;
+    background-image: linear-gradient(115deg, $color, darken($color, 10%));
 }
 
 .item:nth-child(6), .item-nav-item:nth-child(5) .item-nav-item-link, .top-nav-item:nth-child(5) .top-nav-item-link  {
-    background-color: #88D498;
+    $color: #88D498;
+    background-image: linear-gradient(115deg, $color, darken($color, 10%));
 }
