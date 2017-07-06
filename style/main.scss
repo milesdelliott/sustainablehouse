@@ -136,6 +136,7 @@ h1, h2 {
             }
         }
         .img-house-item {
+            
             opacity: 0;
             &.img--show {
                 opacity: 1;
@@ -206,9 +207,7 @@ h1, h2 {
                     top: 0;
                     left: 0;
                     background-blend-mode: multiply;
-                    transition-duration: .2s;
-                    transition-timing-function: ease;
-                    transition-property: all;
+                    transition: .2s ease all;
                 }
                 @media screen and (max-width: $md) {
                     position: relative;
@@ -244,6 +243,7 @@ h1, h2 {
     width: 100%;
     height: auto;
     position: absolute;
+    transition: .2s ease all;
 }
 
 .top-nav {

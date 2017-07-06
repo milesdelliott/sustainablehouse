@@ -271,12 +271,8 @@ h1, h2 {
           top: 0;
           left: 0;
           background-blend-mode: multiply;
-          -webkit-transition-duration: .2s;
-                  transition-duration: .2s;
-          -webkit-transition-timing-function: ease;
-                  transition-timing-function: ease;
-          -webkit-transition-property: all;
-          transition-property: all; }
+          -webkit-transition: .2s ease all;
+          transition: .2s ease all; }
         @media screen and (max-width: 51em) {
           .item-nav-item-link {
             position: relative; } }
@@ -304,7 +300,9 @@ h1, h2 {
   max-width: 90vh;
   width: 100%;
   height: auto;
-  position: absolute; }
+  position: absolute;
+  -webkit-transition: .2s ease all;
+  transition: .2s ease all; }
 
 .top-nav {
   position: fixed;
