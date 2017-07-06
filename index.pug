@@ -83,6 +83,8 @@ html(lang="en")
        a.item-title-anchor(name=item.slug)
    .top-nav
      ul.top-nav-list
+        li.top-nav-item
+           a.top-nav-item-link(id='top-link' href='#index') Back To Top
         each item in bigfive
           li.top-nav-item
            a.top-nav-item-link(id=item.slug+'-link' href='#'+item.slug)= item.name
