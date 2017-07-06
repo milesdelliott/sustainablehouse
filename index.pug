@@ -51,12 +51,8 @@ html(lang="en")
       h2.item-title Sustainable
       .item-index-images
        img#overall-img.img-house.img-house-overall(src="images/overall.png")
-       img#solar-img.img-house.img-house-item(src="images/overallsolar.png")
-       img#design-img.img-house.img-house-item(src="images/overalldesign.png")
-       img#materials-img.img-house.img-house-item(src="images/overallmaterials.png")
-       img#insulation-img.img-house.img-house-item(src="images/overallinsulation.png")
-       img#graywater-img.img-house.img-house-item(src="images/overallgraywater.png")
-       
+       each item in bigfive
+        img.img-house.img-house-item(src="images/overall"+item.slug+".png" id=item.slug+"-img")
      .item-info.item-info-index
       ul.item-nav
         each item in bigfive
