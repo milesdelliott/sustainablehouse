@@ -11,7 +11,7 @@ html(lang="en")
     var bigfive = [
       {
         name: 'Power',
-        slug: 'solar',
+        slug: 'power',
         textLeft: 'If we could capture solar energy with 100% efficiency, and area the size of Rhode Island could power the world.',
         textRight: 'Right now we can utilize it better to power our appliances, light up our rooms, and capture it\'s heat to release later.'
       },
@@ -41,18 +41,14 @@ html(lang="en")
       },
     ];
   .wrapper
-   //.upper
-    nav.nav
-     h1 Sustainable is:
-     
    .items
     .item.item-index
      .item-main.item-main-index
       h2.item-title Sustainable
       .item-index-images
-       img#overall-img.img-house.img-house-overall(src="images/overall.png")
+       img#overall-img.img-house.img-house-overall(src="images/main_house.png")
        each item in bigfive
-        img.img-house.img-house-item(src="images/overall"+item.slug+".png" id=item.slug+"-img")
+        img.img-house.img-house-item(src="images/main_"+item.slug+".png" id=item.slug+"-img")
      .item-info.item-info-index
       ul.item-nav
         each item in bigfive
@@ -66,8 +62,8 @@ html(lang="en")
           h2.item-title= item.name
           .item-house-images
            .item-house-images-inner
-            img.img-house.img-house-overall(src="images/overall.png")
-            img.img-house.img-house-item(src="images/overall"+item.slug+".png")
+            img.img-house.img-house-overall(src="images/main_house.png")
+            img.img-house.img-house-item(src="images/main_"+item.slug+".png")
        .item-info.item-section
         .item-text
          p.item-text-a= item.textLeft
@@ -85,7 +81,7 @@ html(lang="en")
           li.top-nav-item
            a.top-nav-item-link(id=item.slug+'-link' href='#'+item.slug)= item.name
   script.
-   let slugs = ['solar', 'insulation', 'materials', 'design', 'graywater']
+   let slugs = ['power', 'insulation', 'materials', 'design', 'graywater']
    for(let i=0; i < slugs.length; i++) {
      let el = document.getElementById(slugs[i]+'-link')
      el.addEventListener('mouseenter', function() {
