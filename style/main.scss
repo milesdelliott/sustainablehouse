@@ -110,8 +110,10 @@ h1, h2 {
                 border-radius: 50%;
                 overflow: hidden;
                 height: 6rem;
+                border: solid 1em transparent;
+                box-sizing: content-box;
                 &.selected {
-                    border: solid 1em white;
+                    border-color: white;
                     
                 }
                 & img {

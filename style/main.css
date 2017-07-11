@@ -121,9 +121,11 @@ h1, h2 {
         padding: 0;
         border-radius: 50%;
         overflow: hidden;
-        height: 6rem; }
+        height: 6rem;
+        border: solid 1em transparent;
+        box-sizing: content-box; }
         .item-info-images > button.selected {
-          border: solid 1em white; }
+          border-color: white; }
         .item-info-images > button img {
           height: 100%;
           width: auto; }
