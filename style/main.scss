@@ -1,5 +1,5 @@
 $md: 51em;
-$sm: 24em;
+$sm: 27em;
 
 @import 'reset';
 
@@ -99,11 +99,26 @@ h1, h2 {
             display: flex;
             flex-flow: row wrap;
             justify-content: flex-start;
-            & > div {
-                flex: 0 0 auto;
+            & > button {
+                flex: 0 0 6rem;
+                box-sizing: border-box;
                 margin: 1em;
-                border: 2em solid #f2f2f2;
-                border-radius: 2em;
+                position: relative;
+                border-width: 0;
+                padding: 0;
+                //border: 2em solid #f2f2f2;
+                border-radius: 50%;
+                overflow: hidden;
+                height: 6rem;
+                &.selected {
+                    border: solid 1em white;
+                    
+                }
+                & img {
+                    //position: absolute;
+                    height: 100%;
+                    width: auto;
+                }
             }
         }
         @media screen and (max-width: $md) {
@@ -123,6 +138,9 @@ h1, h2 {
         }
         .img-house-overall {
             opacity: 0.4;
+            &.img--hide, &.img--hide-h {
+                opacity: 0;
+            }
         }
     }
     &-index-images {
@@ -244,6 +262,31 @@ h1, h2 {
     height: auto;
     position: absolute;
     transition: .2s ease all;
+    left: 50%;
+    transform: translateX(-50%);
+    &-item {
+        &-info {
+            opacity: 0;
+            max-height: 55vw;
+            width: auto;
+        }
+    }
+}
+
+.img--show {
+    opacity: 1;
+}
+
+.img--hide {
+    opacity: 0;
+}
+
+.img--show-h {
+    opacity: 1;
+}
+
+.img--hide-h {
+    opacity: 0;
 }
 
 .top-nav {
