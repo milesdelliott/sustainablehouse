@@ -106,6 +106,7 @@ h1, h2 {
             }
             &-p {
                 opacity: 1;
+                transition: .2s ease all;
                 @media screen and (min-width: $md) {
                     opacity: 0;
                     height: 0;
@@ -117,21 +118,35 @@ h1, h2 {
             flex-flow: row wrap;
             justify-content: flex-start;
             & > button {
-                flex: 0 0 6rem;
+                flex: 0 0 7rem;
                 box-sizing: border-box;
                 margin: 1em;
                 position: relative;
                 border-width: 0;
                 padding: 0;
-                //border: 2em solid #f2f2f2;
                 border-radius: 50%;
                 overflow: hidden;
-                height: 6rem;
-                border: solid 1em transparent;
+                height: 7rem;
+                
                 box-sizing: content-box;
+                transition: .2s ease border-color;
+
                 &.selected {
-                    border-color: white;
-                    
+                    &:after {
+                        border-width: 1em;
+                    }
+                }
+                &:after {
+                    content: "";
+                    transition: .2s ease all;
+                    border-radius: 50%;
+                    left: 0;
+                    top: 0;
+                    position: absolute;
+                    box-sizing: border-box;
+                    height: 100%;
+                    width: 100%;
+                    border: solid 0 white;
                 }
                 & img {
                     //position: absolute;
