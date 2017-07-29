@@ -90,12 +90,18 @@ html(lang="en")
         .item-text
          p.item-text-a= item.textLeft
          p.item-text-b= item.textRight
-        .item-info-images
-          - var j = 0
-          while j < item.info.length
-            button(id=item.slug+"-info-"+(j+1) class="item-info-"+(j+1))
-              img.item-info-a-image(src="images/"+item.slug+"_"+(j+1)+".png")
-            - j++
+        .item-info-detail-text.item-text
+          h3.item-info-detail-text-header Click the Icons to Learn more
+          - var i = 0
+          while i < item.info.length
+            p.item-info-detail-text-p(id=item.slug+"-item-info-detail-text-p-"+(i+1))= item.info[i]
+            - i++
+        .item-info-detail-images
+          - var i = 0
+          while i < item.info.length
+            button(id=item.slug+"-info-"+(i+1) class="item-info-"+(i+1))
+              img.item-info-a-image(src="images/"+item.slug+"_"+(i+1)+".png")
+            - i++
        a.item-title-anchor(name=item.slug)
    .top-nav
      ul.top-nav-list
