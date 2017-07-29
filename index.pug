@@ -10,35 +10,53 @@ html(lang="en")
   -
     var bigfive = [
       {
-        name: 'Power',
-        slug: 'power',
-        textLeft: 'If we could capture solar energy with 100% efficiency, and area the size of Rhode Island could power the world.',
-        textRight: 'Right now we can utilize it better to power our appliances, light up our rooms, and capture it\'s heat to release later.'
-      },
-      {
-        name: 'Insulation',
-        slug: 'insulation',
-        textLeft: 'Growing cities in desert environemnts are putting increasing strain on our lakes and rivers. This is one resource we cannot do without.',
-        textRight: 'Captured rainwater can be filtered and used to drink, wash dishes, and shower. Caputred graywater from showers and sinks can be used to flush toilets, water plants, and cool rooms to multiply the gallon per gallon value of our water.'
-      },
-      {
-        name: 'Gray water',
-        slug: 'graywater',
-        textLeft: 'The right choice depends on the right location. Using local building materials supports local economies and reduces the resources required to get them to the build site. Local plants are already adapted to the environment and require less resources to maintain.',
-        textRight: 'Hot locales benefit from using lighter colors to reflect more heat. Cooler locations can use geothermal heat to stay warm. South facing windows let natural light in.'
+        name: 'Design',
+        slug: 'design',
+        textLeft: 'Use breeze to cool down',
+        textRight: 'Collect Rainwater, Reuse Graywater',
+        info: [
+        ]
       },
       {
         name: 'Materials',
         slug: 'materials',
         textLeft: 'Light Colors to reflect sun, sustainable materials that are durable.',
-        textRight: 'Collect Rainwater, Reuse Graywater'
+        textRight: 'Collect Rainwater, Reuse Graywater',
+        info: [
+        ]
       },
       {
-        name: 'Design',
-        slug: 'design',
-        textLeft: 'Use breeze to cool down',
-        textRight: 'Collect Rainwater, Reuse Graywater'
+        name: 'Insulation',
+        slug: 'insulation',
+        textLeft: 'Growing cities in desert environemnts are putting increasing strain on our lakes and rivers. This is one resource we cannot do without.',
+        textRight: 'Captured rainwater can be filtered and used to drink, wash dishes, and shower. Caputred graywater from showers and sinks can be used to flush toilets, water plants, and cool rooms to multiply the gallon per gallon value of our water.',
+        info: [
+          'Double and Triple pane windows can trap heat much better than single pane.',
+          'The correct insulation can drop heating costs by over 60% in the winter.'
+        ]
       },
+      {
+        name: 'Power',
+        slug: 'power',
+        textLeft: 'If we could capture solar energy with 100% efficiency, and area the size of Rhode Island could power the world.',
+        textRight: 'Right now we can utilize it better to power our appliances, light up our rooms, and capture it\'s heat to release later.',
+        info: [
+          'Solar panels can be installed on the roof to generate electricity that can be sold back to the grid.',
+          'In windy areas, wind can be really great!'
+        ]
+      },
+      {
+        name: 'Gray water',
+        slug: 'graywater',
+        textLeft: 'The right choice depends on the right location. Using local building materials supports local economies and reduces the resources required to get them to the build site. Local plants are already adapted to the environment and require less resources to maintain.',
+        textRight: 'Hot locales benefit from using lighter colors to reflect more heat. Cooler locations can use geothermal heat to stay warm. South facing windows let natural light in.',
+        info: [
+          'Capturing wastewater from showers is easy and allows you to save mostly good water.',
+          'In windy areas, wind can be really great!'
+        ]
+      }
+      
+      
     ];
   .wrapper
    .items
@@ -64,17 +82,20 @@ html(lang="en")
            .item-house-images-inner
             img.img-house.img-house-overall(src="images/main_house.png" id=item.slug+"-main-img")
             img.img-house.img-house-item(src="images/main_"+item.slug+".png" id=item.slug+"-section-img")
-            img.img-house.img-house-item-info(src="images/"+item.slug+"_1.png" id=item.slug+"-item-info-img-1")
-            img.img-house.img-house-item-info(src="images/"+item.slug+"_2.png" id=item.slug+"-item-info-img-2")
+            - var i = 0
+            while i < item.info.length
+              img.img-house.img-house-item-info(src="images/"+item.slug+"_"+(i+1)+".png" id=item.slug+"-item-info-img-"+(i+1))
+              - i++
        .item-info.item-section
         .item-text
          p.item-text-a= item.textLeft
          p.item-text-b= item.textRight
         .item-info-images
-          button.item-info-1(id=item.slug+"-info-1")
-            img.item-info-a-image(src="images/"+item.slug+"_1.png")
-          button.item-info-2(id=item.slug+"-info-2")
-            img.item-info-b-image(src="images/"+item.slug+"_2.png")
+          - var j = 0
+          while j < item.info.length
+            button(id=item.slug+"-info-"+(j+1) class="item-info-"+(j+1))
+              img.item-info-a-image(src="images/"+item.slug+"_"+(j+1)+".png")
+            - j++
        a.item-title-anchor(name=item.slug)
    .top-nav
      ul.top-nav-list
@@ -83,51 +104,5 @@ html(lang="en")
         each item in bigfive
           li.top-nav-item
            a.top-nav-item-link(id=item.slug+'-link' href='#'+item.slug)= item.name
-  script.
-   let slugs = ['power', 'insulation', 'materials', 'design', 'graywater']
-   let toggles = {power: 0, insulation: 0, materials: 0, design: 0, graywater: 0}
-   for(let i=0; i < slugs.length; i++) {
-     let el = document.getElementById(slugs[i]+'-link')
-     el.addEventListener('mouseenter', function() {
-       document.getElementById(slugs[i]+'-img').classList.add('img--show');
-       document.getElementById('overall-img').classList.add('img--dim');
-     }, false);
-     el.addEventListener('mouseleave', function() {
-       document.getElementById(slugs[i]+'-img').classList.remove('img--show');
-       document.getElementById('overall-img').classList.remove('img--dim');
-     }, false);
-     for(let j = 1; j < 3; j++) {
-       let dl = document.getElementById(slugs[i]+'-info-'+j)
-       dl.addEventListener('mouseenter', function() {
-        document.getElementById(slugs[i]+'-item-info-img-'+j).classList.add('img--show-h');
-        document.getElementById(slugs[i]+'-section-img').classList.add('img--hide-h');
-        document.getElementById(slugs[i]+"-main-img").classList.add('img--hide-h');
-        if (!(toggles[slugs[i]] == 0 || toggles[slugs[i]] == j)) {
-          document.getElementById(slugs[i]+'-item-info-img-'+toggles[slugs[i]]).classList.add('img--hide-h');
-        }
-      }, false);
-      dl.addEventListener('mouseleave', function() {
-        document.getElementById(slugs[i]+'-item-info-img-'+j).classList.remove('img--show-h');
-        document.getElementById(slugs[i]+'-section-img').classList.remove('img--hide-h');
-        document.getElementById(slugs[i]+"-main-img").classList.remove('img--hide-h');
-        document.getElementById(slugs[i]+'-item-info-img-1').classList.remove('img--hide-h');
-        document.getElementById(slugs[i]+'-item-info-img-2').classList.remove('img--hide-h');
-      }, false);
-      dl.addEventListener('click', function() {
-        document.getElementById(slugs[i]+'-info-'+j).classList.toggle('selected');
-        if(document.getElementById(slugs[i]+'-info-'+toggles[slugs[i]]) && toggles[slugs[i]] != j ) document.getElementById(slugs[i]+'-info-'+toggles[slugs[i]]).classList.toggle('selected');
-        document.getElementById(slugs[i]+'-item-info-img-'+j).classList.toggle('img--show');
-        
-        
-        if (toggles[slugs[i]] == 0 || toggles[slugs[i]] == j) {
-          document.getElementById(slugs[i]+'-section-img').classList.toggle('img--hide');
-          document.getElementById(slugs[i]+"-main-img").classList.toggle('img--hide');
-        } else {
-          document.getElementById(slugs[i]+'-item-info-img-'+toggles[slugs[i]]).classList.remove('img--show');
-        }
-        toggles[slugs[i]] = toggles[slugs[i]] == j ? 0 : j;
-
-      }, false);
-     }
-   }
+  script(type="text/javascript" src="js/main.dist.js")
         
