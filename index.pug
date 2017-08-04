@@ -86,6 +86,13 @@ html(lang="en")
             while i < item.info.length
               img.img-house.img-house-item-info(src="images/"+item.slug+"_"+(i+1)+".png" id=item.slug+"-item-info-img-"+(i+1))
               - i++
+          .item-info-detail-images
+            - var i = 0
+            while i < item.info.length
+              button(id=item.slug+"-info-"+(i+1) class="item-info-"+(i+1))= item.slug
+
+                img.item-info-a-image(src="images/"+item.slug+"_"+(i+1)+".png")
+              - i++
        .item-info.item-section
         .item-text
          p.item-text-a= item.textLeft
@@ -95,12 +102,6 @@ html(lang="en")
           - var i = 0
           while i < item.info.length
             p.item-info-detail-text-p(id=item.slug+"-item-info-detail-text-p-"+(i+1))= item.info[i]
-            - i++
-        .item-info-detail-images
-          - var i = 0
-          while i < item.info.length
-            button(id=item.slug+"-info-"+(i+1) class="item-info-"+(i+1))
-              img.item-info-a-image(src="images/"+item.slug+"_"+(i+1)+".png")
             - i++
        a.item-title-anchor(name=item.slug)
    .top-nav

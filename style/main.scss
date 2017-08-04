@@ -89,7 +89,7 @@ h1, h2 {
         .item:nth-child(even) & {
             order: 1;
             &-detail-images {
-                justify-content: flex-end;
+                justify-content: flex-start;
             }
             @media screen and (max-width: $md) {
                 order: 3;
@@ -116,42 +116,61 @@ h1, h2 {
         &-detail-images {
             display: flex;
             flex-flow: row wrap;
-            justify-content: flex-start;
+            justify-content: flex-end;
+            margin-top: 2em;
             & > button {
-                flex: 0 0 7rem;
+                flex: 1 0 7em;
                 box-sizing: border-box;
-                margin: 1em;
+                margin: 0 1em;
                 position: relative;
-                border-width: 0;
+                border: solid rgba(255,255,255,0.6) 3px;
                 padding: 0;
-                border-radius: 50%;
+                //border-radius: 50%;
                 overflow: hidden;
-                height: 7rem;
-                
+                height: 4rem;
+                background-color: transparent;
+
                 box-sizing: content-box;
                 transition: .2s ease border-color;
 
                 &.selected {
                     &:after {
-                        border-width: 1em;
+                        border-width: 0.125em 1.25em;
+                        content: "-";
+                    }
+                    & > img {
+                        height: 200%;
                     }
                 }
                 &:after {
-                    content: "";
+                    content: "+";
                     transition: .2s ease all;
-                    border-radius: 50%;
+                    //border-radius: 50%;
                     left: 0;
                     top: 0;
                     position: absolute;
                     box-sizing: border-box;
                     height: 100%;
+                    color: white;
+                    font-size: 2em;
+                    line-height: 3em;
                     width: 100%;
-                    border: solid 0 white;
+                    border: solid 0 rgba(255,255,255,0.6);
+                }
+                &:hover {
+                    &:after {
+                        color: #333;
+                    }
+                    border-color: #333;
                 }
                 & img {
-                    //position: absolute;
-                    height: 100%;
-                    width: auto;
+                height: 150%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: auto;
+                transform: translateY(-50%) translateX(-50%);
+                transition: .2s ease all;
                 }
             }
         }
@@ -291,7 +310,7 @@ h1, h2 {
 }
 
 .img-house {
-    max-width: 90vh;
+    max-width: 80vh;
     width: 100%;
     height: auto;
     position: absolute;
@@ -301,7 +320,7 @@ h1, h2 {
     &-item {
         &-info {
             opacity: 0;
-            max-height: 55vw;
+            max-height: 40vw;
             width: auto;
         }
     }
