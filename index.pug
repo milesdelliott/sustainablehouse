@@ -77,7 +77,6 @@ html(lang="en")
       .item(class='item-'+item.slug)
        .item-main.item-section
         .item-main-inner
-          h2.item-title= item.name
           .item-house-images
            .item-house-images-inner
             img.img-house.img-house-overall(src="images/main_house.png" id=item.slug+"-main-img")
@@ -94,6 +93,7 @@ html(lang="en")
                 img.item-info-a-image(src="images/"+item.slug+"_"+(i+1)+".png")
               - i++
        .item-info.item-section
+        h2.item-title= item.name
         .item-text
          p.item-text-a= item.textLeft
          p.item-text-b= item.textRight
