@@ -89,7 +89,7 @@ html(lang="en")
           .item-info-detail-images
             - var i = 0
             while i < item.info.length
-              button(id=item.slug+"-info-"+(i+1) class="item-info-"+(i+1))= item.slug
+              button(id=item.slug+"-info-"+(i+1) class="item-info-"+(i+1))
 
                 img.item-info-a-image(src="images/"+item.slug+"_"+(i+1)+".png")
               - i++

@@ -119,52 +119,69 @@ h1, h2 {
             justify-content: flex-end;
             margin-top: 2em;
             & > button {
-                flex: 1 0 7em;
+                flex: 0 0 8.7em;
                 box-sizing: border-box;
-                margin: 0 1em;
+                margin: .8em 1.8em;
                 position: relative;
-                border: solid rgba(255,255,255,0.6) 3px;
+                border: solid rgba(255,255,255,0.6) .2em;
+
                 padding: 0;
-                //border-radius: 50%;
-                overflow: hidden;
-                height: 4rem;
+                border-radius: 50%;
+                //overflow: hidden;
+                height: 6rem;
                 background-color: transparent;
 
                 box-sizing: content-box;
-                transition: .2s ease border-color;
+                transition: .2s ease all;
 
                 &.selected {
+                    border-width: 1em;
+                    margin: 0 1em;
                     &:after {
-                        border-width: 0.125em 1.25em;
+                        border-width: 1em;
+                    }
+                    &:before {
                         content: "-";
                     }
                     & > img {
-                        height: 200%;
+                        height: 120%;
                     }
                 }
-                &:after {
+                &:before {
                     content: "+";
+                    z-index: 10;
+                    position: absolute;
+                    color: white;
+                    font-size: 2em;
+                    top: 50%;
+                    left: 50%;
+                    transform: translateX(-50%) translateY(-50%);
+                    font-weight: bold;
+                }
+                &:after {
+                    content: "";
                     transition: .2s ease all;
-                    //border-radius: 50%;
+                    border-radius: 50%;
                     left: 0;
                     top: 0;
                     position: absolute;
                     box-sizing: border-box;
                     height: 100%;
-                    color: white;
-                    font-size: 2em;
-                    line-height: 3em;
+                    
                     width: 100%;
-                    border: solid 0 rgba(255,255,255,0.6);
+                    //border: solid 0 rgba(255,255,255,0.6);
                 }
                 &:hover {
-                    &:after {
+                    &:before {
                         color: #333;
                     }
                     border-color: #333;
+                    &:after {
+                        border-color: #333;
+                    }
                 }
                 & img {
-                height: 150%;
+                height: 100%;
                 position: absolute;
                 top: 50%;
                 left: 50%;
