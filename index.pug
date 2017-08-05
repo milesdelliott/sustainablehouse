@@ -75,35 +75,29 @@ html(lang="en")
      a.item-title-anchor(name="index")
     each item in bigfive
       .item(class='item-'+item.slug)
-       .item-main.item-section
-        .item-main-inner
-          .item-house-images
-           .item-house-images-inner
-            img.img-house.img-house-overall(src="images/main_house.png" id=item.slug+"-main-img")
-            img.img-house.img-house-item(src="images/main_"+item.slug+".png" id=item.slug+"-section-img")
-            - var i = 0
-            while i < item.info.length
-              img.img-house.img-house-item-info(src="images/"+item.slug+"_"+(i+1)+".png" id=item.slug+"-item-info-img-"+(i+1))
-              - i++
-          .item-info-detail-images
-            - var i = 0
-            while i < item.info.length
-              button(id=item.slug+"-info-"+(i+1) class="item-info-"+(i+1))
-
-                img.item-info-a-image(src="images/"+item.slug+"_"+(i+1)+".png")
-              - i++
-       .item-info.item-section
         h2.item-title= item.name
-        .item-text
-         p.item-text-b= item.textRight
-         p.item-text-a= item.textLeft
+        p.item-text-b= item.textRight
+        p.item-text-a= item.textLeft
+        .item-house-images-inner
+          img.img-house.img-house-overall(src="images/main_house.png" id=item.slug+"-main-img")
+          img.img-house.img-house-item(src="images/main_"+item.slug+".png" id=item.slug+"-section-img")
+          - var i = 0
+          while i < item.info.length
+            img.img-house.img-house-item-info(src="images/"+item.slug+"_"+(i+1)+".png" id=item.slug+"-item-info-img-"+(i+1))
+            - i++
+        - var i = 0
+        while i < item.info.length
+          button.item-info-detail-images-button(id=item.slug+"-info-"+(i+1) class="item-info-"+(i+1))
+
+            img.item-info-a-image(src="images/"+item.slug+"_"+(i+1)+".png")
+          - i++
         .item-info-detail-text.item-text
           h3.item-info-detail-text-header Click the icons to learn more
           - var i = 0
           while i < item.info.length
             p.item-info-detail-text-p(id=item.slug+"-item-info-detail-text-p-"+(i+1))= item.info[i]
             - i++
-       a.item-title-anchor(name=item.slug)
+        a.item-title-anchor(name=item.slug)
    .top-nav
      ul.top-nav-list
         li.top-nav-item
