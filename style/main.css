@@ -181,8 +181,8 @@ h1, h2 {
       margin-top: 2em; }
       .item-info-detail-images > button {
         -webkit-box-flex: 0;
-            -ms-flex: 0 0 8.7em;
-                flex: 0 0 8.7em;
+            -ms-flex: 0 0 9em;
+                flex: 0 0 9em;
         -webkit-box-sizing: border-box;
                 box-sizing: border-box;
         margin: .8em 1.8em;
@@ -190,7 +190,7 @@ h1, h2 {
         border: solid rgba(255, 255, 255, 0.6) 0.2em;
         padding: 0;
         border-radius: 50%;
-        height: 6rem;
+        height: 9em;
         background-color: transparent;
         -webkit-box-sizing: content-box;
                 box-sizing: content-box;
