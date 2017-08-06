@@ -46,12 +46,12 @@ h1, h2 {
     height: 93vh;
     position: relative;
     display: grid;
-    grid-template-columns: 4fr 2fr 3fr 3fr;
-    grid-template-rows: 5em auto 1fr 1fr;
-    grid-template-areas: "main-img main-img title title"
-                        "main-img main-img pullquote pullquote"
-                        "main-img main-img text text"
-                        "detail-img-1 detail-img-2 detail-text detail-text";
+    grid-template-columns: 4fr 2fr 3fr 3fr minmax(2em, 1fr);
+    grid-template-rows: 5em max-content max-content 1fr;
+    grid-template-areas: "main-img main-img title title ."
+                        "main-img main-img pullquote pullquote pullquote"
+                        "main-img main-img text text ."
+                        "detail-img-1 detail-img-2 detail-text detail-text .";
     box-sizing: border-box;
     overflow: hidden;
     &:last-child {
@@ -59,6 +59,16 @@ h1, h2 {
     }
     &-index {
         z-index: 10;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 5em 1fr 1fr;
+        grid-template-areas: "title title" "images text" "images nav";
+        &-text {
+            grid-area: text;
+            max-width: 30em;
+            padding: 3em;
+            line-height: 1.2em;
+        }
+
     }
     &-section {
         
@@ -83,12 +93,14 @@ h1, h2 {
         }
         &-detail-text {
             margin-bottom: 2.5em;
-            grid-area: detail-text;
+            margin-top: 1em;
+            max-width: 30em;
+            line-height: 1.2;
+            font-size: 1em;
             &-header {
                 margin-bottom: 0.5em;
                 display: none;
                 max-width: 30em;
-                margin-left: auto;
                 @media screen and (min-width: $md) {
                     display: block;
                 }
@@ -209,6 +221,10 @@ h1, h2 {
     &-index-images {
         display: block;
         position: relative;
+        grid-area: images;
+        height: 50vw;
+        max-height: 55vh;
+        position: relative;
         .img-house-overall {
             opacity: 1;
             &.img--dim {
@@ -246,7 +262,7 @@ h1, h2 {
         display: flex;
         flex-flow: column;
         height: 100%;
-        position:absolute;
+        grid-area: nav;
         top:0;
         width:100%;
         
@@ -303,15 +319,10 @@ h1, h2 {
     }
     
     &-text {
-        max-width: 30em;
-        line-height: 1.2;
-        font-size: 1em;
-        padding: 1em;
         &-a, &-b {
             padding: 1em;
             line-height: 1.2;
             max-width: 30em;
-            margin-bottom: 1em;
             grid-area: text;
             margin-right: auto;
         }
@@ -320,7 +331,7 @@ h1, h2 {
             padding: 1em;
             background: #f2f2f2;
             font-style: italic;
-            padding-right: 10em;
+            padding-right: 4em;
             margin-top: 1em;
             grid-area: pullquote;
             align-self: center;
@@ -328,16 +339,16 @@ h1, h2 {
 
         }
     }
-     &:nth-child(odd) {
-        grid-template-columns: 3fr 3fr 2fr 4fr;
-        grid-template-areas: "title title main-img main-img"
-                        "pullquote pullquote main-img main-img"
-                        "text text main-img main-img"
-                        "detail-text detail-text detail-img-1 detail-img-2";
+     &:nth-child(even) {
+        grid-template-columns: minmax(2em, 1fr) 3fr 3fr 2fr 4fr;
+        grid-template-areas: ". title title main-img main-img"
+                        "pullquote pullquote pullquote main-img main-img"
+                        ". text text main-img main-img"
+                        ". detail-text detail-text detail-img-1 detail-img-2";
         .item-text-b {
                 padding-right: 1em;
                 margin-right: 0;
-                padding-left: 10em;
+                padding-left: 4em;
             }
         .item-text-a {
                 margin-left: auto;
