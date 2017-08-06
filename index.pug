@@ -61,23 +61,28 @@ html(lang="en")
   .wrapper
    .items
     .item.item-index
-     .item-main.item-main-index
-      h2.item-title Sustainable
+      h2.item-title Anatomy of a Sustainable House
       .item-index-images
-       img#overall-img.img-house.img-house-overall(src="images/main_house.png")
-       each item in bigfive
-        img.img-house.img-house-item(src="images/main_"+item.slug+".png" id=item.slug+"-img")
-     .item-info.item-info-index
+        img#overall-img.img-house.img-house-overall(src="images/main_house.png")
+        each item in bigfive
+         img.img-house.img-house-item(src="images/main_"+item.slug+".png" id=item.slug+"-img")
+      p.item-index-text Sustainability can get pretty complicated. Within a few minutes of research, you’ll be deep in a digital rabbit-hole researching the basic principles of thermal inertia or the latest advances in organic bioclimactic architecture. And wait — have you brushed up on the importance of selecting responsibly sourced grout to complement your home’s bathroom tiles?
       ul.item-nav
         each item in bigfive
           li.item-nav-item
-           a.item-nav-item-link(id=item.slug+'-link' href='#'+item.slug)= item.name
-     a.item-title-anchor(name="index")
+            a.item-nav-item-link(id=item.slug+'-link' href='#'+item.slug)= item.name
+      a.item-title-anchor(name="index")
     each item in bigfive
       .item(class='item-'+item.slug)
         h2.item-title= item.name
         p.item-text-b= item.textRight
-        p.item-text-a= item.textLeft
+        section.item-text-a= item.textLeft
+         .item-info-detail-text.item-text
+          h3.item-info-detail-text-header Click the icons to learn more
+          - var i = 0
+          while i < item.info.length
+            p.item-info-detail-text-p(id=item.slug+"-item-info-detail-text-p-"+(i+1))= item.info[i]
+            - i++
         .item-house-images-inner
           img.img-house.img-house-overall(src="images/main_house.png" id=item.slug+"-main-img")
           img.img-house.img-house-item(src="images/main_"+item.slug+".png" id=item.slug+"-section-img")
@@ -91,12 +96,7 @@ html(lang="en")
 
             img.item-info-a-image(src="images/"+item.slug+"_"+(i+1)+".png")
           - i++
-        .item-info-detail-text.item-text
-          h3.item-info-detail-text-header Click the icons to learn more
-          - var i = 0
-          while i < item.info.length
-            p.item-info-detail-text-p(id=item.slug+"-item-info-detail-text-p-"+(i+1))= item.info[i]
-            - i++
+        
         a.item-title-anchor(name=item.slug)
    .top-nav
      ul.top-nav-list
