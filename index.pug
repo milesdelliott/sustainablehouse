@@ -61,12 +61,19 @@ html(lang="en")
   .wrapper
    .items
     .item.item-index
-      h2.item-title Anatomy of a Sustainable House
+      h1.item-title.item-index-title 
+       span.item-index-title-part Anatomy of a
+        | &nbsp; 
+       span.item-index-title-part Sustainable
+        | &nbsp; 
+       span.item-index-title-part House
       .item-index-images
         img#overall-img.img-house.img-house-overall(src="images/main_house.png")
         each item in bigfive
          img.img-house.img-house-item(src="images/main_"+item.slug+".png" id=item.slug+"-img")
-      p.item-index-text Sustainability can get pretty complicated. Within a few minutes of research, you’ll be deep in a digital rabbit-hole researching the basic principles of thermal inertia or the latest advances in organic bioclimactic architecture. And wait — have you brushed up on the importance of selecting responsibly sourced grout to complement your home’s bathroom tiles?
+      .item-index-text 
+        p Sustainability can get pretty complicated. Within a few minutes of research, you’ll be deep in a digital rabbit-hole researching the basic principles of thermal inertia or the latest advances in organic bioclimactic architecture. And wait — have you brushed up on the importance of selecting responsibly sourced grout to complement your home’s bathroom tiles?
+        h2.item-nav-header Go to:
       ul.item-nav
         each item in bigfive
           li.item-nav-item
