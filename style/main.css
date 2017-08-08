@@ -305,7 +305,14 @@ h1, h2 {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
       grid-template-areas: "title title" "main-img main-img" "pullquote pullquote" "text text" "detail-text detail-text" "detail-img-1 detail-img-2";
-      height: initial; } }
+      height: initial; }
+      .item:last-child {
+        height: initial; }
+      .item:nth-child(odd) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "title title" "main-img main-img" "pullquote pullquote" "text text" "detail-text detail-text" "detail-img-1 detail-img-2";
+        height: initial; } }
 
 .img-house {
   max-width: 80vh;
