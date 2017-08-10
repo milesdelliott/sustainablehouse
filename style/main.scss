@@ -1,5 +1,7 @@
+$lg: 80em;
 $md: 51em;
 $sm: 27em;
+
 
 @import 'reset';
 
@@ -136,7 +138,7 @@ h1, h2 {
                         content: "-";
                     }
                     & > img {
-                        height: 120%;
+                        height: 140%;
                     }
                 }
                 &:before {
@@ -182,8 +184,6 @@ h1, h2 {
                 transition: .2s ease all;
                 }
             }
-        }
-        @media screen and (max-width: $md) {
         }
     }
     &-house-images {
@@ -350,7 +350,7 @@ h1, h2 {
         &-title {
             font-size: 2em;
             line-height: 1.2;
-            padding: 1em 1em;
+            padding: 0.5em 1em 0.25em;
             display: flex;
             flex-flow: column;
             background: #f2f2f2;
@@ -362,11 +362,14 @@ h1, h2 {
         }
         &-text {
             grid-area: text;
-            max-width: 30em;
+            
             color: #333;
             background: #f2f2f2;
             line-height: 1.2em;
             padding: 0 3em 0em 2em;
+            p {
+                max-width: 30em;
+            }
              &.rev {
                 padding-left: 2em;
                 padding-right: 0em;
@@ -389,6 +392,7 @@ h1, h2 {
                 padding-right: 1em;
                 margin-right: -2em;
                 padding-left: 4em;
+                margin-left: auto;
                 
             }
         .item-text-a {
@@ -400,9 +404,10 @@ h1, h2 {
     @media screen and (max-width: $md) {
         height: initial;
         grid-template-rows: auto;
+        
         &:not(:first-child) {
             grid-template-columns: 1fr 1fr;
-            
+            padding-bottom: 2em;
             grid-template-areas: "title title" "main-img main-img" "pullquote pullquote" "text text" "detail-text detail-text" "detail-img-1 detail-img-2";
             
         }
@@ -426,7 +431,15 @@ h1, h2 {
                 max-width: initial;
             }
         }
+        .item-text-b, .item-text-b:nth-child(even) {
+                padding-right: 1em;
+                margin-right: 0;
+                padding-left: 1em;
+                margin-left: 0;
+                
+            }
     }
+   
    
 }
 

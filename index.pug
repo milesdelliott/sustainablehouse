@@ -12,17 +12,22 @@ html(lang="en")
       {
         name: 'Design',
         slug: 'design',
-        textLeft: 'Consider the principles of passive solar: welcome warming sunlight in winter, but shield your home from the heat in summer. You can regulate your home naturally instead of relying on artificial heating and cooling. Large, south-facing windows are great for collecting sunlight when you need it and keeping things shady when you don’t. Take a simple approach. Homes with low surface area are easier to heat and cool. Avoid sprawling homes or small nooks. Emphasize shared spaces.',
+        textLeft: 'Consider the principles of passive solar: welcome warming sunlight in winter, but shield your home from the heat in summer. You can regulate your home naturally instead of relying on artificial heating and cooling.',
         textRight: 'Every day, the sun provides the earth with 10,000 times the total energy consumed by humans. A truly sustainable design lets us capture more of that energy — and make the most of it.',
         info: [
+          'Take a simple approach. Homes with low surface area are easier to heat and cool. Avoid sprawling homes or small nooks. Emphasize shared spaces.',
+          'Large, south-facing windows are great for collecting sunlight when you need it and keeping things shady when you don’t.'
+
         ]
       },
       {
         name: 'Materials',
         slug: 'materials',
-        textLeft: 'You have a choice when selecting building materials. Choose responsibly sourced materials when you can. Prioritize materials that will put in the work to make your home more sustainable. The environment will thank you. Make a slight pivot to more sustainable options. Locally sourced materials cut down on needless transportation costs during the construction process. Bamboo is a rapidly renewable, attractive alternative to traditional wood floors. Opt for materials with high thermal mass, like cement or dark stone. They absorb the sun’s warmth during the day, then release that heat during the night',
+        textLeft: 'You have a choice when selecting building materials. Choose responsibly sourced materials when you can. Prioritize materials that will put in the work to make your home more sustainable. The environment will thank you. Make a slight pivot to more sustainable options.',
         textRight: 'Building a standard 2,500 square foot home creates 2 tons of construction waste. That’s 4,000 pounds — straight to a landfill.',
         info: [
+          'Locally sourced materials cut down on needless transportation costs during the construction process. Bamboo is a rapidly renewable, attractive alternative to traditional wood floors.',
+          'Opt for materials with high thermal mass, like cement or dark stone. They absorb the sun’s warmth during the day, then release that heat during the night.'
         ]
       },
       {
@@ -85,7 +90,8 @@ html(lang="en")
         p.item-text-b= item.textRight
         section.item-text-a= item.textLeft
          .item-info-detail-text.item-text
-          h3.item-info-detail-text-header Click the icons to learn more
+          if item.info.length > 0
+           h3.item-info-detail-text-header Click the icons to learn more
           - var i = 0
           while i < item.info.length
             p.item-info-detail-text-p(id=item.slug+"-item-info-detail-text-p-"+(i+1))= item.info[i]
