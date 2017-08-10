@@ -354,11 +354,11 @@ strong {
             grid-template-areas: "title ." "text images" "nav images";
         }
         &-title {
-            font-size: 1.5em;
+            font-size: 2em;
             line-height: 1.2;
-            padding: 0.6em 0.6em 0.3em;
+            padding: 0.5em 1em 0.25em;
             display: flex;
-            flex-flow: row wrap;
+            flex-flow: column;
             background: #f2f2f2;
             color: #333;
             margin: 0;
@@ -372,7 +372,7 @@ strong {
             color: #333;
             background: #f2f2f2;
             line-height: 1.2em;
-            padding: 0 2em 0em 1em;
+            padding: 0 2em 0em 2em;
             p {
                 max-width: 30em;
                 padding-bottom: 0.5em;
