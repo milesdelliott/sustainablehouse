@@ -28,6 +28,9 @@ h1, h2 {
    text-align: left;
    color: white;
 }
+strong {
+    font-weight: 900
+}
 
 .upper {
     background: #999;
@@ -210,6 +213,7 @@ h1, h2 {
         display: block;
         position: relative;
         grid-area: images;
+        align-self: center;
         height: 50vw;
         max-height: 55vh;
         position: relative;
@@ -240,6 +244,7 @@ h1, h2 {
         
         grid-area: title;
         &-anchor {
+            top: -1.99em;
             position: absolute;
         }
         @media screen and (max-width: $md) {
@@ -340,19 +345,20 @@ h1, h2 {
 
     &-index {
         z-index: 10;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: max-content min-content 1fr;
         grid-template-areas: ". title" "images text" "images nav";
+        height: 100vh;
         &.rev {
             grid-template-columns: 1fr 2fr;
             grid-template-areas: "title ." "text images" "nav images";
         }
         &-title {
-            font-size: 2em;
+            font-size: 1.5em;
             line-height: 1.2;
-            padding: 0.5em 1em 0.25em;
+            padding: 0.6em 0.6em 0.3em;
             display: flex;
-            flex-flow: column;
+            flex-flow: row wrap;
             background: #f2f2f2;
             color: #333;
             margin: 0;
@@ -366,9 +372,10 @@ h1, h2 {
             color: #333;
             background: #f2f2f2;
             line-height: 1.2em;
-            padding: 0 3em 0em 2em;
+            padding: 0 2em 0em 1em;
             p {
                 max-width: 30em;
+                padding-bottom: 0.5em;
             }
              &.rev {
                 padding-left: 2em;
