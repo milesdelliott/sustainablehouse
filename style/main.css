@@ -72,8 +72,8 @@ strong {
   position: relative;
   display: grid;
   grid-template-columns: 4fr 2fr 3fr 3fr minmax(2em, 1fr);
-  grid-template-rows: 5em -webkit-max-content max-content 1fr;
-  grid-template-rows: 5em max-content max-content 1fr;
+  grid-template-rows: 5em -webkit-max-content 5em 1fr;
+  grid-template-rows: 5em max-content 5em 1fr;
   grid-template-areas: "main-img main-img title title ." "main-img main-img pullquote pullquote pullquote" "main-img main-img text text ." "detail-img-1 detail-img-2 detail-text detail-text .";
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
